@@ -29,8 +29,8 @@ router.post("/", (req, res, next) => {
   const store = new Store({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
-    total_price: req.body.code,
-    total_qty: req.body.qty,
+    total_price: req.body.total_price,
+    total_qty: req.body.total_qty,
     remain_qty: req.body.remain_qty,
     product_id: req.body.product_id,
     created_at: req.body.created_at,
