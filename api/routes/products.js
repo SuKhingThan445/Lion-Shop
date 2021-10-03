@@ -32,7 +32,7 @@ router.post("/", (req, res, next) => {
     img: req.body.code,
     price: req.body.price,
     qty: req.body.qty,
-    unit_id: req.body.unit,
+    unit_id: req.body.unit_id,
     discount: req.body.discount,
     total:req.body.total,
     category_id: req.body.category_id,
