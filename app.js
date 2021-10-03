@@ -15,6 +15,8 @@ const townshipRoutes = require("./api/routes/townships");
 const profileRoutes=require("./api/routes/profiles");
 const divisionRoutes=require("./api/routes/divisions");
 const unitRoutes=require("./api/routes/units");
+const invoiceRoutes=require("./api/routes/invoices");
+const saleRoutes=require("./api/routes/sales");
 
 mongoose.connect(
   "mongodb+srv://sukhingthan:be4faultsu@cluster0.w7m44.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl=true"
@@ -49,6 +51,8 @@ app.use("/city",cityRoutes);
 app.use("/township",townshipRoutes);
 app.use("/profiles",profileRoutes);
 app.use("/units",unitRoutes);
+app.use("/invoices",invoiceRoutes);
+app.use("/sales",saleRoutes);
 
 
 app.use((req, res, next) => {

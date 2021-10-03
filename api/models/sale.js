@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-const storeSchema = mongoose.Schema({
+const saleSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     name: String,
-    total_price: String,
-    total_qty: Number,
+    invoice_id: String,
     product_id: String,
+    total_qty: String,
+    total_price: String,
     created_at: String,
     updated_at: String,
     created_by: String,
@@ -13,4 +14,4 @@ const storeSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Store', storeSchema);
+module.exports = mongoose.model('Sale', saleSchema);
