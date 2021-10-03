@@ -55,7 +55,7 @@ router.post("/", (req, res, next) => {
 });
 router.delete("/:userId", (req, res, next) => {
   const id = req.params.userId;
-  userData.remove({ _id: id })
+  Users.remove({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json(result);
