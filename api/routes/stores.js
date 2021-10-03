@@ -31,6 +31,7 @@ router.post("/", (req, res, next) => {
     name: req.body.name,
     total_price: req.body.code,
     total_qty: req.body.qty,
+    remain_qty: req.body.remain_qty,
     product_id: req.body.product_id,
     created_at: req.body.created_at,
     updated_at: req.body.updated_at,
