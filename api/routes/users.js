@@ -33,8 +33,8 @@ router.post("/", (req, res, next) => {
     });
 });
 router.get("/:name", (req, res, next) => {
-  const name=req.params.name;
-  Users.find({name:name})
+  const name=req.params.id;
+  Users.findById(name)
     .exec()
     .then(docs => {
       console.log(docs);
