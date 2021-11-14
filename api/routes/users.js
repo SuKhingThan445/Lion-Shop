@@ -37,7 +37,7 @@ router.get("/:getByName", async(req, res) => {
   if(!userSearchByName)
    return res.status(404)
    .send(`There is no match user from Name : ${req.query.name}.`);
-   res.send(userSearchByName);
+   res.send([userSearchByName]);
 });
 router.delete("/:userId", (req, res, next) => {
   const id = req.params.userId;
