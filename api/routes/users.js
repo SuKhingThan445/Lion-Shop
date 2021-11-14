@@ -33,7 +33,7 @@ router.post("/", (req, res, next) => {
     });
 });
 router.get("/:getByName", async(req, res) => {
-  const userSearchByName = await Data.findOne({ name: req.query.name });
+  const userSearchByName = await Users.findOne({ name: req.query.name });
   if(!userSearchByName)
    return res.status(404)
    .send(`There is no match user from Name : ${req.query.name}.`);
