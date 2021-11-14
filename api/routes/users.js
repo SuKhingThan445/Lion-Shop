@@ -32,26 +32,12 @@ router.post("/", (req, res, next) => {
       });
     });
 });
-router.get("/:name", (req, res, next) => {
-  const name=req.params.id;
-  Users.findById(name)
-    .exec()
-    .then(docs => {
-      console.log(docs);
-      //   if (docs.length >= 0) {
-      res.status(200).json(docs);
-      //   } else {
-      //       res.status(404).json({
-      //           message: 'No entries found'
-      //       });
-      //   }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
+router.get("/:getByName", async(req, res) => {
+  const userSearchByName = await Data.findOne({ name: req.query.name });
+  if(!userSearchByName)
+   return res.status(404)
+   .send(`There is no match user from Name : ${req.query.name}.`);
+   res.send(userSearchByName);
 });
 router.delete("/:userId", (req, res, next) => {
   const id = req.params.userId;
