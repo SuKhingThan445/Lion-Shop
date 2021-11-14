@@ -4,27 +4,6 @@ const mongoose = require("mongoose");
 
 const Users = require("../models/user");
 
-router.get("/", (req, res, next) => {
-  Users.find()
-    .exec()
-    .then(docs => {
-      console.log(docs);
-      //   if (docs.length >= 0) {
-      res.status(200).json(docs);
-      //   } else {
-      //       res.status(404).json({
-      //           message: 'No entries found'
-      //       });
-      //   }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
-});
-
 router.post("/", (req, res, next) => {
   const userData = new Users({
     _id: new mongoose.Types.ObjectId(),
@@ -45,6 +24,27 @@ router.post("/", (req, res, next) => {
         message: "Handling POST requests to /userData",
         createdUser: result
       });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
+router.get("/:name", (req, res, next) => {
+  const name=req.params.name;
+  Users.find({name:name})
+    .exec()
+    .then(docs => {
+      console.log(docs);
+      //   if (docs.length >= 0) {
+      res.status(200).json(docs);
+      //   } else {
+      //       res.status(404).json({
+      //           message: 'No entries found'
+      //       });
+      //   }
     })
     .catch(err => {
       console.log(err);
