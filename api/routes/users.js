@@ -33,10 +33,10 @@ router.post("/", (req, res, next) => {
     });
 });
 router.get("/:getByName", async(req, res) => {
-  const userSearchByName = await Users.findOne({ name: req.query.name });
+  const userSearchByName = await Users.findOne({ name: req.query.name ,password:req.query.password});
   if(!userSearchByName)
    return res.status(404)
-   .send(`There is no match user from Name : ${req.query.name}.`);
+   .send(`There is no match user from Name and password : ${req.query.name}.`);
    res.send([userSearchByName]);
 });
 router.delete("/:userId", (req, res, next) => {
