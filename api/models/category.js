@@ -4,6 +4,7 @@ const categorySchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     name: String,
     code: String,
+    image: String,
     created_at: String,
     updated_at: String,
     created_by: String,

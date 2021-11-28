@@ -30,6 +30,7 @@ router.post("/", (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     code: req.body.code,
+    image: req.body.image,
     created_at: req.body.created_at,
     updated_at: req.body.updated_at,
     created_by: req.body.created_by,
